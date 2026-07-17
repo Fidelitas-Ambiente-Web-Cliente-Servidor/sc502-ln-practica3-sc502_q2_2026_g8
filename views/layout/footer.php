@@ -4,3 +4,6 @@
   <p>Instagram . X</p>
   <p>(c) 2026 Academia Codice</p>
 </footer>
+</body>
+
+</html>

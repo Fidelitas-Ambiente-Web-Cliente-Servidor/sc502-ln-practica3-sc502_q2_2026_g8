@@ -1,40 +1,42 @@
-<h1>Cursos</h1>
-<p>Nuestro catálogo de cursos disponibles.</p>
+<div class="container my-5">
 
-<!-- FILTRO POR CATEGORÍA -->
-<form method="GET" action="index.php" class="mb-4">
-    <input type="hidden" name="controller" value="cursos">
-    <input type="hidden" name="action" value="index">
-    <div class="row g-3 align-items-end">
-        <div class="col-md-3">
-            <label class="form-label fw-bold">Filtrar por categoría</label>
-            <select name="categoria" class="form-select" onchange="this.form.submit()">
-                <option value="">Todas las categorías</option>
-                <?php foreach ($categorias as $cat): ?>
-                    <option value="<?= htmlspecialchars($cat) ?>" 
-                        <?= ($categoriaSeleccionada == $cat) ? 'selected' : '' ?>>
+    <h1>Cursos</h1>
+    <p>Nuestro catálogo de cursos disponibles.</p>
+
+    <!-- FILTRO POR CATEGORÍA -->
+    <form method="GET" action="index.php" class="mb-4">
+        <input type="hidden" name="controller" value="cursos">
+        <input type="hidden" name="action" value="index">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-3">
+                <label class="form-label fw-bold">Filtrar por categoría</label>
+                <select name="categoria" class="form-select" onchange="this.form.submit()">
+                    <option value="">Todas las categorías</option>
+                    <?php foreach ($categorias as $cat): ?>
+                    <option value="<?= htmlspecialchars($cat) ?>" <?=($categoriaSeleccionada==$cat) ? 'selected' : '' ?>
+                        >
                         <?= htmlspecialchars($cat) ?>
                     </option>
-                <?php endforeach; ?>
-            </select>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-outline-primary">
+                    <i class="bi bi-filter me-1"></i>Filtrar
+                </button>
+                <a href="index.php?controller=cursos&action=index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                </a>
+            </div>
         </div>
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-outline-primary">
-                <i class="bi bi-filter me-1"></i>Filtrar
-            </button>
-            <a href="index.php?controller=cursos&action=index" class="btn btn-outline-secondary">
-                <i class="bi bi-arrow-counterclockwise"></i>
-            </a>
-        </div>
-    </div>
-</form>
+    </form>
 
-<!-- LISTADO DE CURSOS -->
-<?php if (empty($cursos)): ?>
+    <!-- LISTADO DE CURSOS -->
+    <?php if (empty($cursos)): ?>
     <div class="alert alert-info">
         <i class="bi bi-info-circle me-2"></i>No hay cursos disponibles.
     </div>
-<?php else: ?>
+    <?php else: ?>
     <div class="table-responsive">
         <table class="table table-bordered table-hover align-middle">
             <thead class="table-dark">
@@ -49,21 +51,35 @@
             </thead>
             <tbody>
                 <?php foreach ($cursos as $curso): ?>
-                    <tr>
-                        <td><?= $curso['id'] ?></td>
-                        <td><strong><?= htmlspecialchars($curso['nombre']) ?></strong></td>
-                        <td><?= htmlspecialchars($curso['descripcion']) ?></td>
-                        <td>
-                            <span class="badge bg-primary">
-                                <?= htmlspecialchars($curso['categoria']) ?>
-                            </span>
-                        </td>
-                        <td><?= $curso['duracion'] ?>h</td>
-                        <td>$<?= number_format($curso['precio'], 2) ?></td>
-                    </tr>
+                <tr>
+                    <td>
+                        <?= $curso['id'] ?>
+                    </td>
+                    <td><strong>
+                            <?= htmlspecialchars($curso['nombre']) ?>
+                        </strong></td>
+                    <td>
+                        <?= htmlspecialchars($curso['descripcion']) ?>
+                    </td>
+                    <td>
+                        <span class="badge bg-primary">
+                            <?= htmlspecialchars($curso['categoria']) ?>
+                        </span>
+                    </td>
+                    <td>
+                        <?= $curso['duracion'] ?>h
+                    </td>
+                    <td>$
+                        <?= number_format($curso['precio'], 2) ?>
+                    </td>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-    <p class="text-muted">Total: <?= count($cursos) ?> curso(s) registrado(s).</p>
-<?php endif; ?>
+    <p class="text-muted">Total:
+        <?= count($cursos) ?> curso(s) registrado(s).
+    </p>
+    <?php endif; ?>
+
+</div>

@@ -14,6 +14,9 @@ class IndexController {
         $cursos = $modelo->getAll();
 
         // mandamos la variable $cursos a la vista
+        $pageTitle = 'Inicio';
+        require "views/layout/header.php";
         require "views/index.html";
+        require "views/layout/footer.php";
     }
 }

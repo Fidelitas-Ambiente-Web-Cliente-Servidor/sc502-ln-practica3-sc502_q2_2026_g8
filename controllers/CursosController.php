@@ -23,8 +23,10 @@ class CursosController {
             $categoriaSeleccionada = '';
         }
 
-        // Incluir las vistas
-        $pageTitle = 'Listado de Cursos';
+        // Incluir las vistas: header.php y footer.php son el esqueleto
+        // compartido (DOCTYPE, head, nav / footer, cierre de body-html);
+        // cursos.html solo trae el contenido propio de esta página.
+        $pageTitle = 'Cursos';
         require __DIR__ . '/../views/layout/header.php';
         require __DIR__ . '/../views/cursos.html';
         require __DIR__ . '/../views/layout/footer.php';
