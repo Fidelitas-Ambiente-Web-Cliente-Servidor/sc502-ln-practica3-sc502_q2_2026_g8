@@ -1,5 +1,5 @@
 <?php
-// Este coso es el controlador de la pagina inicial
+// controlador de la pagina de inicio
 
 require_once "config/database.php";
 require_once "models/IndexModel.php";
