@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS cursos_destacados (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO cursos_destacados (nombre, descripcion, imagen, categoria, duracion, nivel) VALUES
-  ('Desarrollo Web Full Stack', 'Aprende HTML, CSS, JavaScript, PHP y MySQL desde cero', 'datos.jpg', 'Programación', 120, 'Intermedio'),
-  ('Diseño UX/UI Profesional', 'Domina Figma, Adobe XD y principios de diseño centrado en el usuario', 'uxui.jpg', 'Diseño', 60, 'Principiante'),
-  ('Node.js y Express', 'Desarrollo backend con Node.js, Express y MongoDB', 'node.jpg', 'Backend', 80, 'Avanzado');
+  ('Desarrollo Web Full Stack', 'Aprende HTML, CSS, JavaScript, PHP y MySQL desde cero', 'Desarrolo web (1).jpg', 'Programación', 120, 'Intermedio'),
+  ('Diseño UX/UI Profesional', 'Domina Figma, Adobe XD y principios de diseño centrado en el usuario', 'uxui (1).jpg', 'Diseño', 60, 'Principiante'),
+  ('Node.js y Express', 'Desarrollo backend con Node.js, Express y MongoDB', 'node (1).jpg', 'Backend', 80, 'Avanzado');
 
 
 -- TABLA: cursos (Estudiante 2 - Cursos) 

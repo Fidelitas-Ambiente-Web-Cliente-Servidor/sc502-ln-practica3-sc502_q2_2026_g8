@@ -12,7 +12,8 @@
       ?>
     <div class="col-md-4">
       <div class="card">
-        <img src="<?php echo $curso['imagen']; ?>" class="card-img-top" alt="<?php echo $curso['nombre']; ?>">
+        <img src="imagenes/<?php echo htmlspecialchars($curso['imagen']); ?>" class="card-img-top"
+          alt="<?php echo htmlspecialchars($curso['nombre']); ?>">
         <div class="card-body">
           <h5 class="card-title">
             <?php echo $curso['nombre']; ?>
