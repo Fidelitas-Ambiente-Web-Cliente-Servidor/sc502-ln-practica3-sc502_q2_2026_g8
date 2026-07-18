@@ -1,11 +1,13 @@
 services:
   web:
-    image: php:8.2-apache   
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: php-apache-demo
     ports:
       - "8080:80"
     volumes:
-      - ./app:/var/www/html
+      - .:/var/www/html
     depends_on:
       - db
 
@@ -15,11 +17,12 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: appdb
+      MYSQL_DATABASE: proyecto_db
       MYSQL_USER: appuser
       MYSQL_PASSWORD: apppass
     volumes:
       - db_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
     ports:
       - "3307:3306"
 
