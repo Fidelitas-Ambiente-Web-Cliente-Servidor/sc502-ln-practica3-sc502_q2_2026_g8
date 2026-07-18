@@ -1,3 +1,5 @@
+SET NAMES utf8mb4;
+
 -- Crear y seleccionar la base de datos
 CREATE DATABASE IF NOT EXISTS proyecto_db
   CHARACTER SET utf8mb4
